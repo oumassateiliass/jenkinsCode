@@ -1,11 +1,11 @@
 pipeline {
   agent any
      stages {
-     stage("Sync easypost trackers") {
+     stage("Sync brightree API call") {
   		steps {
   			script {
-				final String url = "https://betternight.com/service/v1/order/trackers/sync?pwd=Dq0eYZ@M3Zl0"
-				final String response = sh(script: "curl -s --request GET $url", returnStdout: true).trim()
+				final String url = "https://betternight.com/service/v1/user/brightree/patient/sync?pwd=woRMdwN5dV@6&&limit=30"
+				final String response = sh(script: "curl -s --request PUT '$url'", returnStdout: true).trim()
     			echo response
             }
         }
